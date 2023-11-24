@@ -1,1 +1,15 @@
+import itertools
 
+def Permutation(n):
+    list1 = []
+    for i in range(n):
+        list1.append(i + 1)
+    list2 = list(itertools.permutations(list1, n))
+    print(len(list2))
+    for l in list2:
+        print(" ".join([str(i) for i in l]))
+
+if __name__ == "__main__":
+    with open(r"C:\Users\rifak\Downloads\rosalind_perm.txt") as f:
+        n = int(f.readline().strip())
+    Permutation(n)
