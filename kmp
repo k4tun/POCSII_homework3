@@ -14,9 +14,7 @@ def get_failure_array(s):
     
     return failure_array
 
-fasta_file_path = r"C:\Users\rifak\Downloads\rosalind_kmp (4).txt"
-
-with open(fasta_file_path) as fa:
+with open(r"C:\Users\rifak\Downloads\rosalind_kmp (4).txt") as fa:
     for seq_record in SeqIO.parse(fa, 'fasta'):
         s = str(seq_record.seq)
         failure_array = get_failure_array(s)
