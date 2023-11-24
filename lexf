@@ -1,1 +1,6 @@
+import itertools
 
+f=open(r"C:\Users\rifak\Downloads\rosalind_lexf.txt") 
+
+s,n= f.readline().split(), int(f.readline().strip())
+print('\n'.join([*map("".join,itertools.product(s, repeat=n))]))
