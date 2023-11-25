@@ -1,1 +1,26 @@
+import math
 
+with open(r"C:\Users\rifak\Downloads\rosalind_cunr (1).txt") as f:
+    n = int(f.readline().strip())
+    t = [0, 1]
+    c = [[0] * (n + 1) for _ in range(n + 1)]
+
+    for i in range(n + 1):
+        for j in range(i + 1):
+            if j == 0 or i == j:
+                c[i][j] = 1
+            else:
+                c[i][j] = (c[i - 1][j - 1] + c[i - 1][j]) % (10**7)
+
+    def getcnt(n, i):
+        if i + i == n:
+            return c[n][i] // 2
+        else:
+            return c[n][i]
+
+    for i in range(2, n + 1):
+        t.append(0)
+        for fp in range(1, i // 2 + 1):
+            t[i] = (t[i] + t[fp] * t[i - fp] * getcnt(i, fp)) % (10**6)
+
+    print(t[n - 1])
